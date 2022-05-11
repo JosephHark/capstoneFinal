@@ -12,8 +12,11 @@ passport.use(
     }, (accessToken, refreshToken, profile, done) => {
         //callback function
         console.log(profile)
-       /* new User({
-
-        })*/
+       new User({
+           username:profile.displayName,
+           googleid:profile.id
+        }).save().then((newUser) =>{
+            console.log('new user created' + newUser)
+        })
     })
 )

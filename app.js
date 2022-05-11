@@ -2,7 +2,7 @@ const express = require('express');
 const authRoutes = require('./routes/auth-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
-const keys = require('./config/');
+//const keys = require('./config/');
 const mongodb = require('./db/connect');
 const port = process.env.PORT || 8080;
 
