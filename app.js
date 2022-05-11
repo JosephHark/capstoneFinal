@@ -1,5 +1,6 @@
 const express = require('express');
 const authRoutes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const cookie = require('cookie-session');
@@ -28,9 +29,10 @@ db.once('open', function(callback){
     console.log("connection succeeded");
 })
 
-
 //set up routes
 app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
+
 
 //home route
 app.get('/', (req, res) => {
