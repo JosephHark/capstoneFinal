@@ -1,5 +1,9 @@
 module.exports = {
-    clientID: '325658600917-t09n66klaua8mr97anrtn5bf51qbhs63.apps.googleusercontent.com',
-    clientSecret: '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'
-    
+    google: {
+        clientID: '325658600917-9v30i62cv32s8gnklj43r2a8dgogmiss.apps.googleusercontent.com',
+        clientSecret: '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'
+    },
+    mongodb:{
+        dbURI: 'mongodb+srv://Joseph:adJ2YIPio1vtx76Q@cluster0.oc51x.mongodb.net/todolist'
+    }
 }
