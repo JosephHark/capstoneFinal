@@ -3,8 +3,7 @@ const authRoutes = require('./routes/auth-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 //const keys = require('./config/');
-const mongodb = require('./db/connect');
-const port = process.env.PORT || 8080;
+//const mongodb = require('./db/connect');
 
 const app = express();
 
@@ -12,14 +11,12 @@ const app = express();
 app.set('view engine', 'ejs');
 
 //connect to mongodb
-mongodb.initDb((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      app.listen(port);
-      console.log(`Connected to DB and listening on ${port}`);
-    }
-  });
+mongoose.connect('mongodb+srv://Joseph:adJ2YIPio1vtx76Q@cluster0.oc51x.mongodb.net/toDoFinal');
+var db=mongoose.connection;
+db.on('error', console.log.bind(console, "connection error"));
+db.once('open', function(callback){
+    console.log("connection succeeded");
+})
 
 
 //set up routes
