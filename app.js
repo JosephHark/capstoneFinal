@@ -2,13 +2,22 @@ const express = require('express');
 const authRoutes = require('./routes/auth-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
-//const keys = require('./config/');
-//const mongodb = require('./db/connect');
+const cookie = require('cookie-session');
+const passport = require('passport');
 
 const app = express();
 
 //view engine
 app.set('view engine', 'ejs');
+
+app.use(cookie({
+    maxAge:12*60*60*1000,
+    keys:[keys.session.cookieKey]
+}));
+
+//initailize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //connect to mongodb
 mongoose.connect('mongodb+srv://Joseph:adJ2YIPio1vtx76Q@cluster0.oc51x.mongodb.net/toDoFinal');
