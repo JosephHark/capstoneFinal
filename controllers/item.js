@@ -22,12 +22,12 @@ const getSingle = async (req, res) => {
 };
 
 const createItem = async (req, res) => {
-  const contact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+  const item = {
+    itemName: req.body.itemName,
+    location: req.body.location,
+    dueDate: req.body.dueDate,
+    subject: req.body.subject,
+    progress: req.body.progress
   };
   const response = await mongodb.getDb().db().collection('item').insertOne(contact);
   if (response.acknowledged) {
@@ -41,11 +41,11 @@ const updateItem = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const contact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    itemName: req.body.itemName,
+    location: req.body.location,
+    dueDate: req.body.dueDate,
+    subject: req.body.subject,
+    progress: req.body.progress
   };
   const response = await mongodb
     .getDb()

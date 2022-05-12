@@ -5,8 +5,8 @@ const doc = {
         title: 'My API',
         description: 'Temple API'
     },
-    host: 'glacial-savannah-83570.herokuapp.com',
-    schemes: ['https']
+    host: 'immense-fjord-49957.herokuapp.com',
+    schemes: ['http']
 };
 
 const outputFile = './swagger.json';

@@ -5,10 +5,10 @@
         "description": "Temple API",
         "version": "1.0.0"
     },
-    "host": "glacial-savannah-83570.herokuapp.com",
+    "host": "immense-fjord-49957.herokuapp.com",
     "basePath": "/",
     "schemes": [
-        "https"
+        "http"
     ],
     "paths": {
         "/api-docs": {
@@ -61,6 +61,56 @@
                                 "example": "any"
                             },
                             "Hometown": {
+                                "example": "any"
+                            }
+                            
+                        }
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/item/": {
+            "get": {
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "description": "",
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "itemName": {
+                                "example": "any"
+                            },
+                            "location": {
+                                "example": "any"
+                            },
+                            "dueDate": {
+                                "example": "any"
+                            },
+                            "subject": {
+                                "example": "any"
+                            },
+                            "progress": {
                                 "example": "any"
                             }
                             
@@ -131,6 +181,84 @@
                                     "example": "any"
                                 },
                                 "Hometown": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "description": "",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/item/{id}": {
+            "get": {
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "description": "",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "itemName": {
+                                    "example": "any"
+                                },
+                                "location": {
+                                    "example": "any"
+                                },
+                                "dueDate": {
+                                    "example": "any"
+                                },
+                                "subject": {
+                                    "example": "any"
+                                },
+                                "progress": {
                                     "example": "any"
                                 }
                             }
