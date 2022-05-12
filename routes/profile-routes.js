@@ -12,4 +12,12 @@ const authCheck = (req, res, next) => {
 router.get('/', authCheck, (req, res) => {
     res.render('profile', {user:req.user});
 });
+
+router.get('/contact', (req, res) => {
+    res.render('contact', {user:req.user});
+});
+
+router.get('/item', (req, res) => {
+    res.render('item', {user:req.user});
+});
 module.exports = router;
