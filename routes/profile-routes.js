@@ -15,14 +15,7 @@ router.get('/', authCheck, (req, res) => {
     res.render('profile', {user:req.user});
 });
 
-router.get('/contact', (req, res) => {
-    res.render('contact', {user:req.user});
-});
-
-router.get('/item', (req, res) => {
-    res.render('item', {user:req.user});
-});
-
 router.use('/api-docs', swaggerUi.serve);
 router.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
 module.exports = router;
