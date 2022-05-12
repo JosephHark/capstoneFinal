@@ -21,6 +21,13 @@ app.use(cookie({
 app.use(passport.initialize());
 app.use(passport.session());
 
+mongodb.initDb((err) => {
+    if (err) {
+        console.log(err);
+    } else {
+    }
+});
+
 //set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
@@ -32,12 +39,7 @@ app.get('/', (req, res) => {
         user: req.user
     });
 });
-mongodb.initDb((err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        app.listen(8080, () => {
-            console.log('Capstone project loads into port 8080')
-        });
-    }
-});
+
+app.listen(8080, () => {
+    console.log('Capstone project loads into port 8080')
+})

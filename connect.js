@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 let _db;
 
 const initDb = (callback) => {
@@ -6,14 +6,12 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect('mongodb+srv://Joseph:adJ2YIPio1vtx76Q@cluster0.oc51x.mongodb.net/toDoFinal')
-    .then((client) => {
-      _db = client;
-      callback(null, _db);
-    })
-    .catch((err) => {
-      callback(err);
-    });
+  mongoose.connect('mongodb+srv://Joseph:adJ2YIPio1vtx76Q@cluster0.oc51x.mongodb.net/toDoFinal');
+  var db = mongoose.connection;
+  db.on('error', console.log.bind(console, "connection error"));
+  db.once('open', function (callback) {
+    console.log("connection succeeded");
+  })
 };
 
 const getDb = () => {

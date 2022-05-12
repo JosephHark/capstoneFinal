@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 const authCheck = (req, res, next) => {
     if (!req.user) {
         //if user is not logined in
@@ -20,4 +22,7 @@ router.get('/contact', (req, res) => {
 router.get('/item', (req, res) => {
     res.render('item', {user:req.user});
 });
+
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 module.exports = router;
